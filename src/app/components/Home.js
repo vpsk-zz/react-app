@@ -6,6 +6,7 @@ export class Home extends React.Component {
 			<div>
 				<p>
 					Home component
+					{<p>5*5</p>}
 				</p>
 			</div>
 		);
