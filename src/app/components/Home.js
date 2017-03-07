@@ -1,22 +1,25 @@
 import React from "react";
 
 export class Home extends React.Component {
+	constructor(props) {
+		super();
+		this.age = props.age;
+	}
+
+	onMakeOlder() {
+		this.age += 3;
+		console.log(this.age)
+	}
+
 	render() {
 		console.log(this.props);
 		return (
 			<div>
 					Home component
 					<p>Name : {this.props.name}</p>
-					<p>Age : {this.props.age}</p>
-					<div>
-					<p>User Name : {this.props.user.name}</p>
-						<h4>Hobbbies :</h4>
-						<ul>
-							{this.props.user.hobbies.map((hobby, key) => <li key={key}> {hobby}</li>)}
-						</ul>
-					</div>
+					<p>Age : {this.age}</p>	
 					<hr/>
-					{this.props.children}		
+					<button onClick={this.onMakeOlder.bind(this)} className="btn btn-primary">Change no</button>	
 			</div>
 		);
 	}
@@ -24,7 +27,5 @@ export class Home extends React.Component {
 
 Home.propTypes = {
 	name: React.PropTypes.string, 
-	age: React.PropTypes.number, 
-	user: React.PropTypes.object, 
-	children: React.PropTypes.element.isRequired
+	age: React.PropTypes.number
 }
