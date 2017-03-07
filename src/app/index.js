@@ -19,7 +19,9 @@ class App extends React.Component {
                 </div>
                 <div className="row">
                     <div className="col-xs-10 col-xs-offset-1">
-                        <Home name={"Virendra"} age={24} user = {user}/>
+                        <Home name={"Virendra"} age={24} user = {user}>
+                        	<p>Child Para, which we r passing</p>
+                        </Home>
                     </div>
                 </div>
             </div>
