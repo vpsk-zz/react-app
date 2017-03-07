@@ -26,4 +26,5 @@ Home.propTypes = {
 	name: React.PropTypes.string, 
 	age: React.PropTypes.number, 
 	user: React.PropTypes.object, 
+	children: React.PropTypes.element.isRequired
 }
