@@ -36,7 +36,9 @@ export class Home extends React.Component {
 					<hr/>
 					<button onClick={this.onMakeOlder.bind(this)} className="btn btn-primary">Change no (+)</button>
 					<hr/>
-					<button onClick={this.onMakeOlderMinus.bind(this)} className="btn btn-primary">Change no (-)</button>	
+					<button onClick={this.onMakeOlderMinus.bind(this)} className="btn btn-primary">Change no (-)</button>
+					<hr/>
+					<button onClick={this.props.greet} className="btn btn-primary">Call To Parent Comp</button>		
 			</div>
 		);
 	}
