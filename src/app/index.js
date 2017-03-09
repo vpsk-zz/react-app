@@ -1,63 +1,22 @@
-import React from 'react';
-import { render } from 'react-dom';
+import React from "react";
+import {render} from "react-dom";
+import {Router, Route, browserHistory, IndexRoute} from "react-router";
 
-import { Header } from "./components/Header";
-import { Home } from "./components/Home";
+import {Root} from "./components/Root";
+import {Home} from "./components/Home";
+import {User} from "./components/User";
 
 class App extends React.Component {
-	constructor() {
-		super();
-		this.state = {
-			fieldName : 'Home',
-			homeMounted : true	
-		}
-	}
-
-	onGreet(){
-		alert("Hello ReactJs");
-	}
-
-	onChangedLinkName(value) {
-		this.setState({
-			fieldName : value
-		})
-	}
-
-	onChangeMounted() {
-		this.setState({
-			homeMounted : !this.state.homeMounted
-		})
-	}
-
     render() {
-    	let homeComp = "";
-    	if(this.state.homeMounted) {
-    		homeComp = <Home name={"Virendra"} 
-                        	  initialAge={24} 
-                        	  greet={this.onGreet}
-                        	  changedLink = {this.onChangedLinkName.bind(this)}
-                        	  initialLinkName = {this.state.fieldName}
-                        ></Home>;
-    	}
         return (
-            <div className="container">
-                <div className="row">
-                    <div className="col-xs-10 col-xs-offset-1">
-                        <Header/>
-                    </div>
-                </div>
-                <p>{this.state.fieldName}</p>
-                <div className="row">
-                    <div className="col-xs-10 col-xs-offset-1">
-                        {homeComp}
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-xs-10 col-xs-offset-1">
-                        <button onClick={this.onChangeMounted.bind(this)}>Unmount home comp</button>
-                    </div>
-                </div>
-            </div>
+            <Router history={browserHistory}>
+                <Route path={"/"} component={Root} >
+                    <IndexRoute component={Home} />
+                    <Route path={"user/:id"} component={User} />
+                    <Route path={"home"} component={Home} />
+                </Route>
+                <Route path={"home-single"} component={Home}/>
+            </Router>
         );
     }
 }
