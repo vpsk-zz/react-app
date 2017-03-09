@@ -8,7 +8,8 @@ class App extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			fieldName : 'Home'
+			fieldName : 'Home',
+			homeMounted : true	
 		}
 	}
 
@@ -22,7 +23,22 @@ class App extends React.Component {
 		})
 	}
 
+	onChangeMounted() {
+		this.setState({
+			homeMounted : !this.state.homeMounted
+		})
+	}
+
     render() {
+    	let homeComp = "";
+    	if(this.state.homeMounted) {
+    		homeComp = <Home name={"Virendra"} 
+                        	  initialAge={24} 
+                        	  greet={this.onGreet}
+                        	  changedLink = {this.onChangedLinkName.bind(this)}
+                        	  initialLinkName = {this.state.fieldName}
+                        ></Home>;
+    	}
         return (
             <div className="container">
                 <div className="row">
@@ -33,13 +49,12 @@ class App extends React.Component {
                 <p>{this.state.fieldName}</p>
                 <div className="row">
                     <div className="col-xs-10 col-xs-offset-1">
-                        <Home name={"Virendra"} 
-                        	  initialAge={24} 
-                        	  greet={this.onGreet}
-                        	  changedLink = {this.onChangedLinkName.bind(this)}
-                        	  initialLinkName = {this.state.fieldName}
-                        >
-                        </Home>
+                        {homeComp}
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-xs-10 col-xs-offset-1">
+                        <button onClick={this.onChangeMounted.bind(this)}>Unmount home comp</button>
                     </div>
                 </div>
             </div>
