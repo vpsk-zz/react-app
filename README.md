@@ -16,7 +16,7 @@ componentWillMount - > (Protect method) if you have provied this in ur class the
 						* you can implement this method
 						* right before render method execute this method will execute first
 
-componentDidmount - >	* immediately after inital rendering
+componentDidMount - >	* immediately after inital rendering
 
 componentWillReceiveProps - >	* when ever comp receiev new props
 								* when props changes bbcz of state change or somethin like that

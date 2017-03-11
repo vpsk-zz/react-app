@@ -34,6 +34,7 @@ class App extends React.Component {
     	if(this.state.homeMounted) {
     		homeComp = <Home name={"Virendra"} 
                         	  initialAge={24} 
+                        	  phoneNo = {888123456}
                         	  greet={this.onGreet}
                         	  changedLink = {this.onChangedLinkName.bind(this)}
                         	  initialLinkName = {this.state.fieldName}

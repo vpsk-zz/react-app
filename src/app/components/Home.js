@@ -72,7 +72,8 @@ export class Home extends React.Component {
 			<div>
 					Home component
 					<p>Name : {this.props.name}</p>
-					<p>Age : {this.state.age}</p>	
+					<p>Age : {this.state.age}</p>
+					<p>Phone No : {this.props.phoneNo}</p>
 					<p>Status : {this.state.status}</p>
 					<hr/>
 					<button onClick={this.onMakeOlder.bind(this)} className="btn btn-primary">Change no (+)</button>
