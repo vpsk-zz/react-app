@@ -5,7 +5,9 @@ export class Search extends React.Component {
     constructor(props) {
         super();
         this.state = {
-            searchString : ''
+            searchString : '',
+            file: '',
+            imagePre: ''
         };
     }
 
@@ -13,12 +15,31 @@ export class Search extends React.Component {
         browserHistory.push("/home");
     }
 
-    handleChange(data,e) {
+    handleChange(e) {
         this.setState({searchString:e.target.value});
+    }
 
+    imageUploadHandle(e) {
+        let reader = new FileReader();
+        let file = e.target.files[0];
+
+        reader.onloadend = () => {
+          this.setState({
+            file: file,
+            imagePre: reader.result
+          });
+        }
+        reader.readAsDataURL(file)
     }
 
     render() {
+        let {imagePre} = this.state;
+        let $imagePreview = null;
+        if (imagePre) {
+          $imagePreview = (<img width="304" height="236" className="img-responsive" src={imagePre} />);
+        } else {
+          $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
+        }
         var libraries = [
             {id: 1, name: 'Backbone.js', url: 'http://documentcloud.github.io/backbone/'},
             {id: 2, name: 'AngularJS', url: 'https://angularjs.org/'},
@@ -48,7 +69,9 @@ export class Search extends React.Component {
         }
         return (
             <div>
-                <input type="text"  defaultValue={this.state.searchString} onChange={this.handleChange.bind(this , libraries)} 
+                <input type="file" onChange={this.imageUploadHandle.bind(this)}/>
+                <div>{$imagePreview}</div>
+                <input type="text"  defaultValue={this.state.searchString} onChange={this.handleChange.bind(this)} 
                 placeholder="Type here" />
                 <ul> 
                     { libraries.map((l, index) =>
