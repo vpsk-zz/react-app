@@ -1,6 +1,10 @@
 # react-app
 reactJs Application
 
+	# To Run this application clone this repo
+		* npm install
+		* npm start
+
 Virtual Dom -> make faster reactJS 
 				similar to angularjs like in watch function comparing new value with old value.
 				In react also virtual dom compare with actual dom.
