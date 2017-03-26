@@ -4,6 +4,7 @@ import {Link} from "react-router";
 export const Header = (props) => {
     return (
         <nav className="navbar navbar-default">
+            <h2 className="text-center">ReactJs Components </h2>
             <div className="container">
                 <div className="navbar-header">
                     <ul className="nav navbar-nav">
