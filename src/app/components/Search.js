@@ -49,7 +49,7 @@ export class Search extends React.Component {
             <div>
                 <div>    
                     <input type="text"  defaultValue={this.state.searchString} onChange={this.handleChange.bind(this)} 
-                    placeholder="Type here" />
+                    placeholder="Type here your skill" />
                     <ul> 
                         { libraries.map((l, index) =>
                              <li key={index}>{l.name} <a href={l.url}>{l.url}</a></li>
