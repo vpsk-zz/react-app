@@ -52,7 +52,7 @@ export class Search extends React.Component {
                     placeholder="Type here your skill" />
                     <ul> 
                         { libraries.map((l, index) =>
-                             <li key={index}>{l.name} <a href={l.url}>{l.url}</a></li>
+                             <li activeStyle={{color: "red"}} key={index}>{l.name} <a href={l.url}>{l.url}</a></li>
                         )}
                     </ul>
                 </div>
